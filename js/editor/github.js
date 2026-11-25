@@ -38,7 +38,7 @@ const EditorGitHub = (() => {
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
       throw new Error(res.status === 403
-        ? "GitHub 쓰기 권한이 거부되었습니다. Contents: Read and write 권한과 저장소 협업자 권한을 확인하세요."
+        ? "GitHub 쓰기 권한이 거부되었습니다."
         : (err.message || `저장 실패: ${path}`));
     }
     return res.json();
@@ -66,7 +66,7 @@ const EditorGitHub = (() => {
       const err = await res.json().catch(() => ({}));
       const msg = err.message || "";
       if (res.status === 401 || /bad credentials/i.test(msg)) throw new Error("GitHub 토큰이 만료되었거나 올바르지 않습니다. 다시 로그인해 주세요.");
-      if (res.status === 403) throw new Error("GitHub 쓰기 권한이 거부되었습니다. Contents: Read and write 권한과 저장소 협업자 권한을 확인하세요.");
+      if (res.status === 403) throw new Error("GitHub 쓰기 권한이 거부되었습니다.");
       throw new Error(msg || "파일 업로드 실패");
     }
     return `./${path}`;
@@ -80,7 +80,7 @@ const EditorGitHub = (() => {
       const err = await res.json().catch(() => ({}));
       const msg = err.message || "";
       if (res.status === 401 || /bad credentials/i.test(msg)) return "GitHub 토큰이 만료되었거나 올바르지 않습니다. 다시 로그인해 주세요.";
-      if (res.status === 403) return "GitHub 쓰기 권한이 거부되었습니다. Contents: Read and write 권한과 저장소 협업자 권한을 확인하세요.";
+      if (res.status === 403) return "GitHub 쓰기 권한이 거부되었습니다.";
       if (res.status === 404) return `저장소 또는 '${branch}' 브랜치에 접근할 수 없습니다.`;
       if (res.status === 422) return "GitHub 커밋을 생성하지 못했습니다. 브랜치 보호 규칙 또는 잘못된 파일 경로를 확인하세요.";
       return msg || fallback;

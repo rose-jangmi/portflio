@@ -206,22 +206,27 @@ const EditorUI = (() => {
   function showTokenInputModal(onSubmit, onCancel) {
     openModal({
       title: "GitHub 로그인",
-      body: `<p style="margin-bottom:0.75rem;color:var(--muted)">GitHub Personal Access Token을 입력하세요.<br><strong>대상 저장소에 대한 Contents: Read and write 권한</strong>이 필요합니다.</p>
-        <input id="editorPatInput" type="password" placeholder="github_pat_... 또는 ghp_..." style="width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:0.5rem;box-sizing:border-box;" />`,
+      body: `<p style="margin-bottom:0.75rem;color:var(--muted)">GitHub 토큰을 입력하세요.</p>
+        <input id="editorPatInput" type="password" placeholder="GitHub 토큰" autocomplete="off" style="width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:0.5rem;box-sizing:border-box;" />`,
       foot: `<button type="button" class="editor-toolbar__btn editor-toolbar__btn--ghost" id="tokenCancelBtn">취소</button><button type="button" class="editor-toolbar__btn editor-toolbar__btn--primary" id="tokenSubmitBtn">로그인</button>`,
     });
     const input = document.getElementById("editorPatInput");
     document.getElementById("tokenSubmitBtn")?.addEventListener("click", () => { closeModal(); onSubmit?.(input?.value?.trim()); });
     document.getElementById("tokenCancelBtn")?.addEventListener("click", () => { closeModal(); onCancel?.(); });
+    input?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        closeModal();
+        onSubmit?.(input.value.trim());
+      }
+    });
     input?.focus();
   }
 
   function showOAuthModal(device, onCancel) {
     openModal({
       title: "GitHub 로그인",
-      body: `<p style="margin-bottom:1rem;color:var(--muted)">아래 코드를 GitHub에 입력하여 인증하세요.</p>
-        <div class="editor-device-code"><strong>${device.user_code}</strong></div>
-        <a href="${device.verification_uri}" target="_blank" rel="noopener" class="editor-oauth-link">GitHub 인증 페이지 열기 →</a>
+      body: `<div class="editor-device-code"><strong>${device.user_code}</strong></div>
+        <a href="${device.verification_uri}" target="_blank" rel="noopener" class="editor-oauth-link">GitHub 인증 열기 →</a>
         <p class="editor-loading-text" style="margin-top:1rem">인증 대기 중...</p>`,
       foot: `<button type="button" class="editor-toolbar__btn editor-toolbar__btn--ghost" id="oauthCancelBtn">취소</button>`,
     });

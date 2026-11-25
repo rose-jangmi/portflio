@@ -1,14 +1,14 @@
 {
   "github": {
     "clientId": "",
-    "owner": "Jangbeomjo",
-    "repo": "portfolio",
+    "owner": "rose-jangmi",
+    "repo": "portflio",
     "branch": "main",
-    "repository": "https://github.com/Jangbeomjo/portfolio",
+    "repository": "https://github.com/rose-jangmi/portflio",
     "token": ""
   },
   "adminUsers": [],
   "meta": {
-    "updatedAt": "2026-07-09T00:00:00.000Z"
+    "updatedAt": "2026-11-25T00:00:00.000Z"
   }
 }

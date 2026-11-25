@@ -56,31 +56,29 @@ const EditorAuth = (() => {
     const explicitRepo = githubConfig.repo?.trim();
     if (explicitOwner && explicitRepo) return { owner: explicitOwner, repo: explicitRepo };
 
-    const repository = githubConfig.repository?.trim() || "https://github.com/Jangbeomjo/portfolio";
+    const repository = githubConfig.repository?.trim() || "https://github.com/rose-jangmi/portflio";
     const match = repository.match(/github\.com\/([^/]+)\/([^/]+)/i);
     if (match) return { owner: match[1], repo: match[2] };
 
-    return { owner: "Jangbeomjo", repo: "portfolio" };
+    return { owner: "rose-jangmi", repo: "portflio" };
   }
 
   async function loginWithToken(token, owner, repo, branch) {
     const headers = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
     const userRes = await fetch(`${API}/user`, { headers });
-    if (userRes.status === 401) throw new Error("GitHub 토큰이 만료되었거나 올바르지 않습니다. 새 Personal Access Token을 사용하세요.");
-    if (!userRes.ok) throw new Error(`GitHub 사용자 조회 실패 (${userRes.status}).`);
+    if (userRes.status === 401) throw new Error("토큰이 만료됐거나 올바르지 않습니다.");
+    if (!userRes.ok) throw new Error("GitHub 계정을 확인할 수 없습니다.");
     const user = await userRes.json();
 
     const repoRes = await fetch(`${API}/repos/${owner}/${repo}`, { headers });
-    if (repoRes.status === 404) throw new Error(`저장소를 찾을 수 없습니다: ${owner}/${repo}. private 저장소라면 토큰에 해당 저장소 접근 권한이 필요합니다.`);
-    if (repoRes.status === 403) throw new Error("GitHub API 접근이 거부되었습니다. SSO 인증 또는 토큰 권한을 확인하세요.");
-    if (!repoRes.ok) throw new Error(`저장소 접근 불가: ${owner}/${repo} (${repoRes.status}).`);
+    if (repoRes.status === 404) throw new Error(`저장소를 찾을 수 없습니다: ${owner}/${repo}`);
+    if (repoRes.status === 403) throw new Error("GitHub 접근이 거부되었습니다.");
+    if (!repoRes.ok) throw new Error("저장소를 확인할 수 없습니다.");
 
     const repoData = await repoRes.json();
     const permissions = repoData.permissions || {};
     let canPush = permissions.push === true || permissions.admin === true || permissions.maintain === true;
 
-    // 일부 fine-grained PAT 응답에서는 repository 권한 요약이 없을 수 있음.
-    // 협업자 권한 API로 한 번 더 확인한다.
     if (!canPush) {
       const permissionRes = await fetch(`${API}/repos/${owner}/${repo}/collaborators/${encodeURIComponent(user.login)}/permission`, { headers });
       if (permissionRes.ok) {
@@ -90,11 +88,12 @@ const EditorAuth = (() => {
     }
 
     if (!canPush) {
-      throw new Error(`이 저장소에 대한 쓰기 권한이 없습니다. ${owner}/${repo}의 협업자 또는 소유자로 연결된 계정인지, fine-grained PAT에 Contents: Read and write 권한이 있는지 확인하세요.`);
+      throw new Error("이 저장소에 쓰기 권한이 없습니다.");
     }
 
     const branchRes = await fetch(`${API}/repos/${owner}/${repo}/branches/${encodeURIComponent(branch)}`, { headers });
-    if (branchRes.status === 404) throw new Error(`GitHub 브랜치 '${branch}'를 찾을 수 없습니다.`);
+    if (branchRes.status === 404) throw new Error(`브랜치 '${branch}'를 찾을 수 없습니다.`);
+    if (!branchRes.ok) throw new Error("브랜치를 확인할 수 없습니다.");
 
     const session = {
       token,
@@ -118,22 +117,21 @@ const EditorAuth = (() => {
     if (!clientId) {
       const token = githubConfig.token || await new Promise((resolve, reject) => {
         const finish = (value) => {
-          if (!value) return reject(new Error("GitHub 인증이 취소되었습니다. PAT를 입력해야 합니다."));
+          if (!value) return reject(new Error("로그인이 취소되었습니다."));
           resolve(value);
         };
 
         if (typeof window !== "undefined" && typeof window.EditorUI?.showTokenInputModal === "function") {
-          window.EditorUI.showTokenInputModal(finish, () => reject(new Error("GitHub 인증이 취소되었습니다.")));
+          window.EditorUI.showTokenInputModal(finish, () => reject(new Error("로그인이 취소되었습니다.")));
           return;
         }
 
         if (typeof window !== "undefined" && typeof window.prompt === "function") {
-          const value = window.prompt("GitHub Personal Access Token을 입력하세요. repo 권한이 필요합니다.");
-          finish(value);
+          finish(window.prompt("GitHub 토큰을 입력하세요."));
           return;
         }
 
-        reject(new Error("이 브라우저에서 토큰 입력을 사용할 수 없습니다."));
+        reject(new Error("토큰을 입력할 수 없습니다."));
       });
 
       return loginWithToken(token, owner, repo, branch);

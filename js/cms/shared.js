@@ -79,7 +79,7 @@ const CMS = (() => {
   const _imagePreviewCache = new Map();
   const ASSET_CACHE_KEY = "portfolio_cms_asset_cache";
   const MAX_PERSIST_PREVIEW = 1.5 * 1024 * 1024;
-  const GITHUB_DEFAULTS = { owner: "Jangbeomjo", repo: "portfolio", branch: "main" };
+  const GITHUB_DEFAULTS = { owner: "rose-jangmi", repo: "portflio", branch: "main" };
   window.CMS_GITHUB = { ...GITHUB_DEFAULTS, ...(window.CMS_GITHUB || {}) };
 
   /** GitHub 저장소 설정 (cms-config + 세션) */

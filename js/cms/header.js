@@ -28,7 +28,7 @@ const CMSHeader = (() => {
         ${editBtn}
         <button type="button" class="header-actions__btn" id="logoutHeaderBtn">Logout</button>`;
     } else {
-      actionHtml = `<button type="button" class="header-actions__btn header-actions__btn--primary" id="loginHeaderBtn">${isMobile ? "로그인" : "Login with GitHub"}</button>`;
+      actionHtml = `<button type="button" class="header-actions__btn header-actions__btn--primary" id="loginHeaderBtn">GitHub 로그인</button>`;
     }
 
     container.innerHTML = actionHtml;

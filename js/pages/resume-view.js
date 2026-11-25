@@ -183,7 +183,7 @@
       section.onclick = (e) => {
         if (e.target.closest(".resume-form-section__controls")) return;
         if (!EditorAuth?.getSession?.()) {
-          EditorUI.showToast("편집하려면 상단 Login with GitHub를 눌러 주세요.", "info");
+          EditorUI.showToast("편집하려면 상단에서 GitHub 로그인 후 시작하세요.", "info");
           return;
         }
         CMSPageActions.runWithEditor(() => {

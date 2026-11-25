@@ -1,0 +1,129 @@
+/* ── Scroll reveal / entrance animations ── */
+
+:root {
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-duration: 0.78s;
+  --reveal-stagger: 85ms;
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter var(--reveal-duration) var(--reveal-ease);
+  transition-delay: calc(var(--reveal-i, 0) * var(--reveal-stagger));
+  will-change: opacity, transform, filter;
+}
+
+/* Fade in up (default) */
+.reveal,
+.reveal.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal.reveal-left {
+  transform: translateX(-36px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(36px);
+}
+
+.reveal.reveal-zoom {
+  transform: translateY(18px) scale(0.94);
+}
+
+.reveal.reveal-left.reveal-zoom {
+  transform: translateX(-32px) scale(0.94);
+}
+
+.reveal.reveal-right.reveal-zoom {
+  transform: translateX(32px) scale(0.94);
+}
+
+.reveal.reveal-blur {
+  filter: blur(10px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Hero — desktop entrance stagger */
+body.skin-jangmi .hero.hero--entrance-ready .hero-portrait.reveal {
+  animation: revealHeroIn 0.82s var(--reveal-ease) both 0.08s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-eyebrow.reveal {
+  animation: revealHeroIn 0.75s var(--reveal-ease) both 0.16s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-name.reveal {
+  animation: revealHeroIn 0.82s var(--reveal-ease) both 0.24s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-tagline-ko.reveal,
+body.skin-jangmi .hero.hero--entrance-ready .hero-tagline-en.reveal {
+  animation: revealHeroIn 0.75s var(--reveal-ease) both 0.34s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-intro-block.reveal {
+  animation: revealHeroIn 0.72s var(--reveal-ease) both 0.42s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-links.reveal {
+  animation: revealHeroIn 0.68s var(--reveal-ease) both 0.5s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .hero-scroll.reveal {
+  animation: revealHeroIn 0.65s var(--reveal-ease) both 0.58s;
+}
+
+body.skin-jangmi .hero.hero--entrance-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@keyframes revealHeroIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Parallax layers */
+[data-parallax] {
+  will-change: transform;
+  transition: transform 0.12s linear;
+}
+
+/* Edit mode — no hidden content */
+body.edit-mode .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+  }
+}

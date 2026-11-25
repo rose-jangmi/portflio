@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": "edu-hongik",
+      "period": "2019.02 — 2026.02",
+      "school": "Hongik University",
+      "major": "Department of Architecture",
+      "minor": "",
+      "title": "홍익대학교 건축학부",
+      "desc": "Hongik University. Department of Architecture",
+      "gpa": "",
+      "graduated": "졸업 예정",
+      "order": 0
+    }
+  ],
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "장미",
+  "nameEn": "JANG MI",
+  "role": "Hongik University · Department of Architecture",
+  "birth": "",
+  "location": "서울",
+  "email": "wkdal13101@naver.com",
+  "intro": "홍익대학교 건축학부. 기억·인권·도시의 역사성을 공간으로 다루는 건축 작업을 이어오고 있습니다. 졸업작품 Shadows of Oppression을 중심으로 도시재생, 학교 리노베이션, 레진 오브제, 사진 작업을 함께 소개합니다.",
+  "taglineEn": "Architecture Portfolio 2025",
+  "aboutExtra": "학업과 병행해 북한 인권 전시·대사관 프로그램·미국 연설 등 Public Engagement 활동을 이어왔으며, 건조한 꽃을 레진에 담는 작업으로 기억과 취약함, 일상의 고요한 아름다움을 탐구합니다.",
+  "signature": "Jang Mi",
+  "introLines": [
+    { "id": "il-1", "text": "건축설계 · 도시재생 · 리노베이션", "order": 0 },
+    { "id": "il-2", "text": "기억·인권을 다루는 공간 제안", "order": 1 },
+    { "id": "il-3", "text": "Rhino · AutoCAD · D5 · Enscape · V-ray", "order": 2 }
+  ],
+  "heroJourney": [
+    { "id": "hj-1", "year": "2019", "label": "홍익대 건축 입학", "order": 0 },
+    { "id": "hj-2", "year": "2021", "label": "Unity Grove", "order": 1 },
+    { "id": "hj-3", "year": "2024", "label": "졸업전시 Outstanding Project", "order": 2 },
+    { "id": "hj-4", "year": "2026", "label": "졸업 예정", "order": 3 }
+  ],
+  "avatar": "./assets/images/jangmi-portrait-hero.jpg",
+  "aboutImage": "./assets/images/jangmi-portrait-about.jpg",
+  "backgroundImage": "",
+  "educationImage": "./assets/images/jangmi-portrait-education.jpg",
+  "educationPanelBackground": "./assets/images/jangmi/01-cover.jpg",
+  "activitiesBackgroundImage": "./assets/images/jangmi/03-shadows-overview.jpg",
+  "logo": "./assets/images/jangmi-portrait-hero.jpg",
+  "contactImage": "./assets/images/jangmi-portrait-contact.jpg",
+  "contactLead": "건축·도시재생·인권 공간에 관한 이야기를 기다립니다.",
+  "footerText": "© 2025 JANG MI. ALL RIGHTS RESERVED.",
+  "gallery": [],
+  "about": {
+    "tagline": "오래되어 피로하더라도, 잊지 않고 기억하고 고민하는 건축",
+    "intro": "6.25 전쟁으로부터 70여 년, 전쟁이 갈라놓은 한반도는 여전히 나눠져 있다. 남북한 관계와 별개로 여전히 고통받고 피해받는 이들이 있다. 한 국가의 국민이기 전에 인간 존재로서 응당 존중받아야 할 인권. 군사정치적으로 감춰진 인권 문제를 직시하며, 간접적인 경험을 통해 다시 생각하고 느낄 수 있는 공간을 제안한다.",
+    "growth": "홍익대학교 건축학부(2019.02–2026.02)에서 도시재생·학교 리노베이션·메모리얼을 중심으로 설계했다. Co-Creators 인권 전시, 주필리핀대사관 NK Women’s Rights, 미국 NK Human Rights Speech 등 공공 활동이 설계 주제와 맞닿아 있다.",
+    "strengths": "AutoCAD, Rhino, SketchUp, Illustrator, Photoshop, InDesign, D5, Enscape, V-ray",
+    "collaboration": "Liberty in North Korea(LiNK)와 레진 키링 오브제 협업. 하트 속 구름으로 “Under the Same Sky”를 시각화해, 작은 사물이 분단·기억·연결의 메시지를 담을 수 있음을 탐구했다.",
+    "goals": "꽃의 구조와 색의 변화, 레진을 투과하는 빛처럼 기억의 취약함과 일상의 고요한 아름다움을 건축적 사고로 이어 가려 한다."
+  },
+  "menu": [
+    { "label": "ABOUT", "href": "#about" },
+    { "label": "EDUCATION", "href": "#education" },
+    { "label": "SOFTWARE", "href": "#skills" },
+    { "label": "ENGAGEMENT", "href": "#activities" },
+    { "label": "AWARDS", "href": "#awards" },
+    { "label": "PORTFOLIO", "href": "#portfolio-book" },
+    { "label": "WORKS", "href": "#projects" },
+    { "label": "CONTACT", "href": "#contact" },
+    { "label": "ALL WORKS", "href": "./pages/projects.html" },
+    { "label": "DOCUMENTS", "href": "./pages/documents.html" }
+  ],
+  "links": {
+    "github": "",
+    "velog": "",
+    "blog": "",
+    "linkedin": "",
+    "instagram": "",
+    "youtube": "",
+    "notion": ""
+  },
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

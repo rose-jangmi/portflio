@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "id": "doc-portfolio-pdf",
+      "title": "Architecture Portfolio PDF (2025)",
+      "description": "장미 건축 포트폴리오 원본 20p",
+      "fileUrl": "./assets/docs/jangmi-architecture-portfolio-2025.pdf",
+      "visibility": "private",
+      "allowPreview": false,
+      "allowDownload": false,
+      "order": 0
+    }
+  ],
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

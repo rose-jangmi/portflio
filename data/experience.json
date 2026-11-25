@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "id": "act-cocreators",
+      "category": "activity",
+      "activityType": "exhibition",
+      "period": "2022.09 — 2022.11",
+      "title": "Co-Creators, Human Rights Exhibition",
+      "description": "인권 전시 Co-Creators 참여",
+      "sub": "Public Engagement",
+      "organization": "Co-Creators",
+      "order": 0
+    },
+    {
+      "id": "act-ph-embassy",
+      "category": "activity",
+      "activityType": "external",
+      "period": "2024.02",
+      "title": "Embassy of the Philippines, NK Women’s Rights",
+      "description": "주필리핀대사관 북한 여성 인권 프로그램",
+      "sub": "Public Engagement",
+      "organization": "Embassy of the Philippines",
+      "order": 1
+    },
+    {
+      "id": "act-us-speech",
+      "category": "activity",
+      "activityType": "external",
+      "period": "2025.08 — 2025.10",
+      "title": "United States, NK Human Rights Speech",
+      "description": "미국 북한 인권 연설. Human Rights Speech in The United States.",
+      "sub": "Public Engagement",
+      "organization": "United States",
+      "order": 2
+    }
+  ],
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

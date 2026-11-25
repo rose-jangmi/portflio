@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>JANG MI | 2025 Architecture Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=20260718">
+  <link rel="stylesheet" href="./css/themes.css?v=20260807">
+  <link rel="stylesheet" href="./css/mobile.css?v=20260835">
+  <link rel="stylesheet" href="./css/editor.css?v=20260837">
+  <link rel="stylesheet" href="./css/pages.css?v=20260716">
+  <link rel="stylesheet" href="./css/jangmi-theme.css?v=20261118">
+  <link rel="stylesheet" href="./css/animations.css?v=20260818">
+  <link rel="stylesheet" href="./css/jangmi.css?v=20261125-profile-card-spacing-private-portfolio">
+</head>
+<body class="skin-jangmi theme-light page-home">
+
+  <header class="site-header" id="header">
+    <a href="#projects" class="brand">JANG MI</a>
+
+
+    <div class="header-top-actions">
+      <a class="profile-header-link" href="#about">Profile</a>
+      <div class="header-actions" id="headerActions"></div>
+    </div>
+    <nav class="nav-desktop" id="navDesktop"></nav>
+    <button class="nav-toggle" type="button" aria-label="메뉴" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile" aria-hidden="true"></nav>
+  <script src="./js/cms/nav.js"></script>
+
+  <main>
+
+    <!-- HOME -->
+    <section class="hero landing-hero" id="home">
+      <div class="landing-intro">
+        <p class="hero-eyebrow"></p>
+        <p class="hero-tagline-en" id="heroTaglineEn"></p>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS -->
+    <section class="section section-projects landing-projects" id="projects" aria-label="Selected projects">
+      <div class="container">
+        <h2 class="visually-hidden">SELECTED PROJECTS</h2>
+        <div class="project-grid" id="projectGrid" data-reveal-stagger></div>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="section section-about" id="about" aria-label="Profile">
+      <a class="profile-backdrop" href="#projects" aria-hidden="true" tabindex="-1"></a>
+      <div class="profile-modal" role="dialog" aria-modal="false" aria-labelledby="profileName" tabindex="-1">
+        <a class="profile-close" href="#projects" aria-label="프로필 닫기">×</a>
+        <div class="profile-content">
+          <div class="profile-portrait portrait-frame portrait-frame--about">
+            <img src="./assets/images/jangmi-portrait-about.jpg" alt="장미 프로필">
+          </div>
+          <div class="profile-copy">
+            <p class="profile-kicker">ABOUT</p>
+            <h1 id="profileName"></h1>
+            <p class="profile-name-en" id="profileNameEn"></p>
+            <p class="profile-role" id="profileRole"></p>
+            <p class="profile-location">위치 <span id="profileLocation"></span></p>
+            <p class="profile-bio" id="aboutText"></p>
+            <p class="profile-bio profile-bio--extra" id="aboutExtra"></p>
+
+            <div class="profile-contact">
+              <p class="contact-lead"></p>
+              <dl class="contact-row"></dl>
+            </div>
+
+            <div class="profile-actions">
+              <a class="profile-portfolio-link" href="#portfolio-book" hidden style="display:none">PORTFOLIO <span aria-hidden="true">↗</span></a>
+              <a class="profile-portfolio-link profile-document-link" href="./pages/documents.html">DOCUMENTS <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <div class="profile-education">
+              <h2>EDUCATION</h2>
+              <ul class="timeline-full" id="eduTimeline" data-reveal-stagger></ul>
+            </div>
+
+            <section class="profile-records-section" aria-labelledby="profileActivitiesTitle">
+              <h2 id="profileActivitiesTitle">ACTIVITIES</h2>
+              <div class="profile-activity-list" id="profileActivityGrid"></div>
+            </section>
+
+            <section class="profile-records-section" aria-labelledby="profileAwardsTitle">
+              <h2 id="profileAwardsTitle">AWARDS</h2>
+              <ul class="profile-award-list" id="profileAwardList"></ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 EDUCATION -->
+    <section class="section section-education" id="education">
+      <div class="container section-education__inner">
+        <div class="education-panel reveal reveal-up reveal-blur">
+          <div class="education-panel__bg" data-edit-image="profile.educationPanelBackground" aria-hidden="true"></div>
+          <div class="education-panel__content">
+            <button type="button" class="education-panel__bg-btn edit-only" data-trigger-edit-image="profile.educationPanelBackground">+ 배경 추가</button>
+            <div class="section-headline">
+              <span class="section-index section-index--light">02</span>
+              <h2 class="section-title section-title--light">EDUCATION</h2>
+            </div>
+          </div>
+        </div>
+        <div class="education-visual reveal reveal-right reveal-zoom">
+          <img class="education-visual__img" src="./assets/images/jangmi-portrait-education.jpg" alt="장미">
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 SKILLS -->
+    <section class="section section-skills" id="skills">
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">03</span>
+          <h2 class="section-title">STRENGTHS</h2>
+        </div>
+        <div class="skill-categories reveal reveal-up" id="skillCategories" data-reveal-stagger></div>
+        <div class="skill-bars" id="skillBars" data-reveal-stagger></div>
+        <div class="tech-cloud reveal reveal-up" id="techCloud" data-reveal-stagger></div>
+      </div>
+    </section>
+
+    <!-- 04 CAREER -->
+    <section class="section section-career" id="career">
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">04</span>
+          <h2 class="section-title">CAREER</h2>
+        </div>
+        <ul class="timeline-full" id="careerTimeline" data-reveal-stagger></ul>
+      </div>
+    </section>
+
+    <!-- 05 ACTIVITIES -->
+    <section class="section section-activities" id="activities">
+      <div class="section-activities__bg" aria-hidden="true" data-parallax="0.1"></div>
+      <button type="button" class="section-activities__bg-btn edit-only" data-trigger-edit-image="profile.activitiesBackgroundImage">+ 배경 추가</button>
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">05</span>
+          <h2 class="section-title">ACTIVITIES</h2>
+        </div>
+        <div class="activity-grid" id="activityGrid" data-reveal-stagger></div>
+      </div>
+    </section>
+
+    <!-- 06 TRAINING -->
+    <section class="section section-training" id="training">
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">06</span>
+          <h2 class="section-title">EXPERIENCE</h2>
+        </div>
+        <div class="training-grid" id="trainingGrid" data-reveal-stagger></div>
+      </div>
+    </section>
+
+    <!-- 07 CERTIFICATES -->
+    <section class="section section-certificates" id="certificates">
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">07</span>
+          <h2 class="section-title">CERTIFICATES</h2>
+        </div>
+        <ul class="cert-list" id="certList" data-reveal-stagger></ul>
+      </div>
+    </section>
+
+    <!-- 08 AWARDS -->
+    <section class="section section-awards" id="awards">
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">08</span>
+          <h2 class="section-title">AWARDS</h2>
+        </div>
+        <ul class="award-list" id="awardList" data-reveal-stagger></ul>
+      </div>
+    </section>
+
+    <!-- 10 PORTFOLIO PAGES -->
+    <section class="section section-portfolio-book" id="portfolio-book" role="dialog" aria-modal="true" aria-labelledby="portfolioBookTitle" tabindex="-1" hidden style="display:none">
+      <a class="portfolio-back" href="#about" aria-label="프로필로 돌아가기">← PROFILE</a>
+      <div class="container">
+        <div class="section-headline reveal reveal-up reveal-blur">
+          <span class="section-index">10</span>
+          <h2 class="section-title" id="portfolioBookTitle">PORTFOLIO</h2>
+        </div>
+        <div class="portfolio-page-grid" data-reveal-stagger>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/01-cover.jpg" alt="Jang Mi Portfolio page 01" loading="eager"><figcaption>01</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/02-contents.jpg" alt="Jang Mi Portfolio page 02"><figcaption>02</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/03-shadows-overview.jpg" alt="Jang Mi Portfolio page 03" loading="lazy"><figcaption>03</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/04-shadows-analysis.jpg" alt="Jang Mi Portfolio page 04" loading="lazy"><figcaption>04</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/05-shadows-plan.jpg" alt="Jang Mi Portfolio page 05" loading="lazy"><figcaption>05</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/06-shadows-details.jpg" alt="Jang Mi Portfolio page 06" loading="lazy"><figcaption>06</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/07-larchiveum-overview.jpg" alt="Jang Mi Portfolio page 07" loading="lazy"><figcaption>07</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/08-larchiveum-analysis.jpg" alt="Jang Mi Portfolio page 08" loading="lazy"><figcaption>08</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/09-larchiveum-drawing.jpg" alt="Jang Mi Portfolio page 09" loading="lazy"><figcaption>09</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/10-unity-overview.jpg" alt="Jang Mi Portfolio page 10" loading="lazy"><figcaption>10</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/11-unity-site.jpg" alt="Jang Mi Portfolio page 11" loading="lazy"><figcaption>11</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/12-unity-details.jpg" alt="Jang Mi Portfolio page 12" loading="lazy"><figcaption>12</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/13-samcheong-overview.jpg" alt="Jang Mi Portfolio page 13" loading="lazy"><figcaption>13</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/14-samcheong-plan.jpg" alt="Jang Mi Portfolio page 14" loading="lazy"><figcaption>14</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/15-resin-objects.jpg" alt="Jang Mi Portfolio page 15" loading="lazy"><figcaption>15</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/16-resin-collaboration.jpg" alt="Jang Mi Portfolio page 16" loading="lazy"><figcaption>16</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/17-photography-overview.jpg" alt="Jang Mi Portfolio page 17" loading="lazy"><figcaption>17</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/18-photography-01.jpg" alt="Jang Mi Portfolio page 18" loading="lazy"><figcaption>18</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/19-photography-02.jpg" alt="Jang Mi Portfolio page 19" loading="lazy"><figcaption>19</figcaption></figure>
+          <figure class="portfolio-book-page"><img src="./assets/images/jangmi/20-closing-contact.jpg" alt="Jang Mi Portfolio page 20" loading="lazy"><figcaption>20</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 CONTACT -->
+    <section class="section section-contact" id="contact">
+      <div class="container contact-compact reveal reveal-up reveal-blur">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <div class="section-headline contact-head">
+              <span class="section-index">11</span>
+              <h2 class="section-title">CONTACT</h2>
+            </div>
+            <p class="contact-lead">언제나 환영합니다.</p>
+            <div class="contact-row"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <button type="button" class="top-btn" id="topBtn">TOP ↑</button>
+    <p>© 2025 JANG MI. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <div class="skeleton-overlay" id="skeletonOverlay" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="editor-drawer" id="editorDrawer" aria-hidden="true"></div>
+
+  <script src="./js/portfolio-data.js?v=20261125-private-portfolio"></script>
+  <script src="./js/data-loader.js"></script>
+  <script src="./js/cms/documents-access.js"></script>
+  <script src="./js/editor/store.js?v=20260723"></script>
+  <script src="./js/editor/history.js"></script>
+  <script src="./js/editor/autosave.js?v=20260801"></script>
+  <script src="./js/editor/draft.js"></script>
+  <script src="./js/cms/shared.js?v=20260836"></script>
+  <script src="./js/editor/auth.js"></script>
+  <script src="./js/editor/github.js?v=20260836"></script>
+  <script src="./js/editor/upload.js"></script>
+  <script src="./js/editor/ui.js"></script>
+  <script src="./js/cms/github-panel.js"></script>
+  <script src="./js/cms/header.js?v=20261119-single-theme"></script>
+  <script src="./js/editor/inline-editor.js?v=20261125-crud-fixes"></script>
+  <script src="./js/seo.js"></script>
+  <script src="./js/theme.js?v=20261119-single-theme"></script>
+  <script src="./js/project-detail.js?v=20261125-no-project-pdf"></script>
+  <script src="./js/main.js?v=20261125-private-portfolio"></script>
+</body>
+</html>

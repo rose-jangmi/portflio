@@ -1,0 +1,30 @@
+{
+  "bars": [
+    { "id": "sk-ai", "name": "Illustrator", "level": 100, "stack": "그래픽 · 다이어그램", "category": "2D", "icon": "ai", "order": 0 },
+    { "id": "sk-d5", "name": "D5", "level": 100, "stack": "리얼타임 렌더", "category": "Render", "icon": "d5", "order": 1 },
+    { "id": "sk-cad", "name": "AutoCAD", "level": 80, "stack": "2D 도면", "category": "CAD", "icon": "cad", "order": 2 },
+    { "id": "sk-rhino", "name": "Rhino", "level": 80, "stack": "3D 모델링", "category": "3D", "icon": "rhino", "order": 3 },
+    { "id": "sk-ps", "name": "Photoshop", "level": 80, "stack": "이미지 · 보드", "category": "2D", "icon": "ps", "order": 4 },
+    { "id": "sk-enscape", "name": "Enscape", "level": 60, "stack": "실시간 시각화", "category": "Render", "icon": "enscape", "order": 5 },
+    { "id": "sk-skp", "name": "SketchUp", "level": 60, "stack": "매스 · 스터디", "category": "3D", "icon": "sketchup", "order": 6 },
+    { "id": "sk-id", "name": "InDesign", "level": 60, "stack": "편집 · 포트폴리오", "category": "2D", "icon": "id", "order": 7 },
+    { "id": "sk-vray", "name": "V-ray", "level": 60, "stack": "렌더링", "category": "Render", "icon": "vray", "order": 8 }
+  ],
+  "stackLines": [
+    { "id": "cs-1", "label": "CAD / 3D", "text": "AutoCAD · Rhino · SketchUp", "order": 0 },
+    { "id": "cs-2", "label": "Graphic", "text": "Illustrator · Photoshop · InDesign", "order": 1 },
+    { "id": "cs-3", "label": "Render", "text": "D5 · Enscape · V-ray", "order": 2 }
+  ],
+  "tags": [
+    "AutoCAD",
+    "Rhino",
+    "SketchUp",
+    "Illustrator",
+    "Photoshop",
+    "InDesign",
+    "D5",
+    "Enscape",
+    "V-ray"
+  ],
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

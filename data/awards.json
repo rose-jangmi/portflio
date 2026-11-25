@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "id": "award-grad",
+      "title": "Outstanding Project, Graduation Exhibition",
+      "organization": "Graduation Exhibition",
+      "date": "2024.06",
+      "description": "졸업전시 Outstanding Project",
+      "proofUrl": "",
+      "order": 0
+    },
+    {
+      "id": "award-idea",
+      "title": "Idea Competition Honorable Mention",
+      "organization": "Idea Competition",
+      "date": "2024.07",
+      "description": "아이디어 공모전 장려",
+      "proofUrl": "",
+      "order": 1
+    }
+  ],
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

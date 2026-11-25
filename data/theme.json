@@ -1,0 +1,32 @@
+{
+  "mode": "light",
+  "preset": "blush",
+  "style": "jangmi",
+  "glassmorphism": true,
+  "colors": {
+    "primary": "#9A5C52",
+    "primaryDeep": "#7A4540",
+    "background": "#F7F4F0",
+    "surface": "#FFFFFF",
+    "surface2": "#EFE6DF",
+    "text": "#2C2420",
+    "muted": "#7A6B64",
+    "tintSkills": "#EFE8E2",
+    "tintActivities": "#E8E4DC"
+  },
+  "fonts": {
+    "serif": "Cormorant Garamond",
+    "sans": "Noto Sans KR",
+    "signature": "Great Vibes"
+  },
+  "animations": true,
+  "layout": {
+    "containerMax": 1180,
+    "sectionPad": 0,
+    "portraitW": 520,
+    "portraitSm": 320,
+    "baseFontSize": 16,
+    "titleScale": 1.08
+  },
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

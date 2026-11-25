@@ -1,0 +1,14 @@
+{
+  "title": "JANG MI | Architecture Portfolio 2025",
+  "description": "장미 건축 포트폴리오 — 홍익대학교 건축학부. Shadows of Oppression, Larchiveum, Unity Grove, SAM CHEONG, Resin Objects, Photography.",
+  "keywords": "장미, Jang Mi, 홍익대학교, 건축, 포트폴리오, 북한 인권 메모리얼, Larchiveum, Unity Grove, 삼청동",
+  "ogImage": "./assets/images/jangmi/01-cover.jpg",
+  "favicon": "",
+  "robots": "index, follow",
+  "sitemap": {
+    "enabled": true,
+    "baseUrl": "",
+    "pages": ["/", "/index.html"]
+  },
+  "meta": { "updatedAt": "2026-11-18T00:00:00.000Z" }
+}

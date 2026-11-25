@@ -206,8 +206,8 @@ const EditorUI = (() => {
   function showTokenInputModal(onSubmit, onCancel) {
     openModal({
       title: "GitHub 로그인",
-      body: `<p style="margin-bottom:0.75rem;color:var(--muted)">GitHub Personal Access Token을 입력하세요.</p>
-        <input id="editorPatInput" type="password" placeholder="ghp_xxxxxxxxxxxx" style="width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:0.5rem;box-sizing:border-box;" />`,
+      body: `<p style="margin-bottom:0.75rem;color:var(--muted)">GitHub Personal Access Token을 입력하세요.<br><strong>대상 저장소에 대한 Contents: Read and write 권한</strong>이 필요합니다.</p>
+        <input id="editorPatInput" type="password" placeholder="github_pat_... 또는 ghp_..." style="width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:0.5rem;box-sizing:border-box;" />`,
       foot: `<button type="button" class="editor-toolbar__btn editor-toolbar__btn--ghost" id="tokenCancelBtn">취소</button><button type="button" class="editor-toolbar__btn editor-toolbar__btn--primary" id="tokenSubmitBtn">로그인</button>`,
     });
     const input = document.getElementById("editorPatInput");

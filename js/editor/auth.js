@@ -64,18 +64,37 @@ const EditorAuth = (() => {
   }
 
   async function loginWithToken(token, owner, repo, branch) {
-    const userRes = await fetch(`${API}/user`, { headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" } });
-    if (!userRes.ok) throw new Error("GitHub 토큰이 올바르지 않거나 권한이 없습니다.");
+    const headers = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
+    const userRes = await fetch(`${API}/user`, { headers });
+    if (userRes.status === 401) throw new Error("GitHub 토큰이 만료되었거나 올바르지 않습니다. 새 Personal Access Token을 사용하세요.");
+    if (!userRes.ok) throw new Error(`GitHub 사용자 조회 실패 (${userRes.status}).`);
     const user = await userRes.json();
 
-    const repoRes = await fetch(`${API}/repos/${owner}/${repo}`, {
-      headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
-    });
-    if (!repoRes.ok) throw new Error(`저장소 접근 불가: ${owner}/${repo}`);
+    const repoRes = await fetch(`${API}/repos/${owner}/${repo}`, { headers });
+    if (repoRes.status === 404) throw new Error(`저장소를 찾을 수 없습니다: ${owner}/${repo}. private 저장소라면 토큰에 해당 저장소 접근 권한이 필요합니다.`);
+    if (repoRes.status === 403) throw new Error("GitHub API 접근이 거부되었습니다. SSO 인증 또는 토큰 권한을 확인하세요.");
+    if (!repoRes.ok) throw new Error(`저장소 접근 불가: ${owner}/${repo} (${repoRes.status}).`);
 
     const repoData = await repoRes.json();
-    const canPush = repoData.permissions?.push || repoData.permissions?.admin;
-    if (!canPush) throw new Error("이 저장소에 대한 쓰기 권한이 없습니다.");
+    const permissions = repoData.permissions || {};
+    let canPush = permissions.push === true || permissions.admin === true || permissions.maintain === true;
+
+    // 일부 fine-grained PAT 응답에서는 repository 권한 요약이 없을 수 있음.
+    // 협업자 권한 API로 한 번 더 확인한다.
+    if (!canPush) {
+      const permissionRes = await fetch(`${API}/repos/${owner}/${repo}/collaborators/${encodeURIComponent(user.login)}/permission`, { headers });
+      if (permissionRes.ok) {
+        const permissionData = await permissionRes.json();
+        canPush = ["admin", "maintain", "write"].includes(permissionData.permission);
+      }
+    }
+
+    if (!canPush) {
+      throw new Error(`이 저장소에 대한 쓰기 권한이 없습니다. ${owner}/${repo}의 협업자 또는 소유자로 연결된 계정인지, fine-grained PAT에 Contents: Read and write 권한이 있는지 확인하세요.`);
+    }
+
+    const branchRes = await fetch(`${API}/repos/${owner}/${repo}/branches/${encodeURIComponent(branch)}`, { headers });
+    if (branchRes.status === 404) throw new Error(`GitHub 브랜치 '${branch}'를 찾을 수 없습니다.`);
 
     const session = {
       token,
@@ -167,7 +186,15 @@ const EditorAuth = (() => {
       }
       if (!res.ok) return session;
       const repoData = await res.json();
-      if (!repoData.permissions?.push && !repoData.permissions?.admin) {
+      let canPush = repoData.permissions?.push === true || repoData.permissions?.admin === true || repoData.permissions?.maintain === true;
+      if (!canPush) {
+        const permissionRes = await fetch(`${API}/repos/${owner}/${repo}/collaborators/${encodeURIComponent(session.user.login)}/permission`, { headers: getHeaders() });
+        if (permissionRes.ok) {
+          const permissionData = await permissionRes.json();
+          canPush = ["admin", "maintain", "write"].includes(permissionData.permission);
+        }
+      }
+      if (!canPush) {
         clearSession();
         return null;
       }

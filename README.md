@@ -1,4 +1,4 @@
-# JANG MI Portfolio 2025
+# JANG MI Portfolio 2026
 
 장미님의 CMS 포트폴리오를 복원하고 원본 20페이지 PDF 이미지를 포트폴리오 섹션으로 추가했습니다.
 
